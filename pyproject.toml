@@ -12,7 +12,8 @@ dependencies = [
     "dissect<4.0.0,>=3.0.0",
     "openrelik-worker-common<1.0.0,>=0.16.0",
     "yara-python<5.0.0,>=4.3.0",
-    "elasticsearch<9.0.0,>=8.0.0",
+    # OpenSearch 2.x rejects the vendor media types emitted by elasticsearch-py 8.
+    "elasticsearch==7.13.4",
 ]
 
 [dependency-groups]

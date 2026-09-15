@@ -70,6 +70,8 @@ uv run celery --app=src.app worker --task-events --concurrency=1 --loglevel=INFO
 ## Notes
 
 - Dissect and its plugin ecosystem are installed from PyPI when the worker image is built.
+- The Elasticsearch client is pinned to `7.13.4` for OpenSearch 2.x compatibility. Client 8.x
+  sends Elasticsearch vendor media types that OpenSearch rejects with HTTP 406 during bulk writes.
 - Ensure the host provides the filesystem libraries Dissect needs to mount your evidence
   (for example `libewf`, `libguestfs-tools`) if you operate outside Docker.
 - The preset list for the bundle lives in `src/target_query_bundle.py` (`TARGET_QUERY_BUNDLE`).
